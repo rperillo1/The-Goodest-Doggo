@@ -46,12 +46,14 @@
     </main>
 
     <section>
-        <h3>Welcome to the Goodest Doggo! <br> Will your dog win next?</h3>  
+        <h3>Upload your dog photo's below!</h3>  
     </section>
-    
-    <main id="main-2">
-        <a href="/auth/google">Sign In To Create Your Doggo's Profile</a>
-    </main>
+
+    <form class="image-form"method="POST" action="upload/post" enctype="multipart/form-data">
+      <input type="file" name="image" /><br /><br />
+      <button type="submit" name="upload">Upload</button>
+    </form>
+
 
 </body>
 </html>

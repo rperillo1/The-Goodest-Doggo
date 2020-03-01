@@ -14,7 +14,7 @@ body {
 #main-2 {
   display: flex;
   justify-content: center;
-  padding-top: 250px;
+  padding-top: 90px;
 }
 
 div {
@@ -66,4 +66,29 @@ div.card-body {
   justify-content: center;
   align-items: center;
   background-color: #343A40;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: white;
+  color: #343A40;
+  border: 4px solid #343A40;
+}
+
+a {
+  color: white;
+  padding-right: 20px;
+}
+
+ul.right {
+  color: #343A40;
+}
+
+.image-form {
+  background-color: white;
+  display: inline-block;
+  text-align: center;
+  border: 4px solid #343A40;
 }
