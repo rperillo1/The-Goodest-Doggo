@@ -6,6 +6,10 @@ var session = require('express-session');
 var passport = require('passport');
 var logger = require('morgan');
 
+//image uploader
+const bodyParser = require('body-parser');
+
+
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
@@ -27,6 +31,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
+
+//image middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(session({
   secret: 'SEIProject2',
