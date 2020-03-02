@@ -46,13 +46,13 @@
     </main>
 
     <section>
-        <h3><%=user.name%>, your dog photo is below</h3>  
+        <h3><%=user[0].name%>, your dog photo is below</h3>  
     </section>
 
 
     <div class="card" style="width: 18rem;">
       
-      <img src="..." class="card-img-top" alt="...">
+      <img src="../images/<%=user[0].dog[0].URL%>" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title"><%=dogName%></h5>
         <a href="#" class="btn btn-primary">Post to a competition</a>
