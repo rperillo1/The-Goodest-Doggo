@@ -4,10 +4,11 @@ const Resize = require('../Resize');
 
 function show(req, res) {
     console.log(req.user)
-    User.find(req.params.id, function(err, user){
+    User.find(req.user._id, function(err, user){
+        console.log(user);
         res.render('profile/show', {
-            // user: req.user,
-            // dogName: req.user.dog
+            user: req.user,
+            dogName: req.user.dog[0].name
           });
     });
 }
@@ -23,11 +24,14 @@ const create = async function (req, res) {
 
     console.log(filename)
     console.log(req.body)
-    // req.user.dog.push(filename);
     req.user.dog.push(req.body);
     console.log(req.user.dog)
     console.log(req.user)
-    res.redirect(`/profile/${req.user._id}`);
+    req.user.save(function(err) {
+        console.log('USER', req.user)
+        if (err) return res.redirect('/profile/');
+            res.redirect(`/profile/${req.user._id}`);       
+    });
 };
 
 
