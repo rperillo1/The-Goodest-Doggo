@@ -3,8 +3,15 @@ const path = require('path');
 const Resize = require('../Resize');
 
 function show(req, res) {
-
+    console.log(req.user)
+    User.find(req.params.id, function(err, user){
+        res.render('profile/show', {
+            // user: req.user,
+            // dogName: req.user.dog
+          });
+    });
 }
+
 
 const create = async function (req, res) {
     const imagePath = path.join(process.cwd(), '/public/images');
@@ -13,28 +20,34 @@ const create = async function (req, res) {
       res.status(401).alert({error: 'Please provide an image'});
     }
     const filename = await fileUpload.save(req.file.buffer);
-    // return res.status(200).json({ name: filename });
+
     console.log(filename)
     console.log(req.body)
-    req.user.dog.push(filename);
+    // req.user.dog.push(filename);
     req.user.dog.push(req.body);
     console.log(req.user.dog)
-    res.redirect('/profile');
+    console.log(req.user)
+    res.redirect(`/profile/${req.user._id}`);
 };
 
-// function create(req, res){
-//     Flight.findById(req.params.id, function(err, flight){
-//         flight.destinations.push(req.body);
-//         flight.destinations.sort((a,b) => {
-//             let dateA = new Date(a.arrival);
-//             let dateB = new Date(b.arrival);
-//                 return dateA - dateB;
-//         });
-//             flight.save(function(err){
-//                 res.redirect(`/flights/${flight._id}`)
-//             });
-//     });
-// }
+
+// const create = async function (req, res) {
+//     const imagePath = path.join(process.cwd(), '/public/images');
+//     const fileUpload = new Resize(imagePath);
+//     if (!req.file) {
+//       res.status(401).alert({error: 'Please provide an image'});
+//     }
+//     const filename = await fileUpload.save(req.file.buffer);
+
+//     console.log(filename)
+//     console.log(req.body)
+//     req.user.dog.push(filename);
+//     req.user.dog.push(req.body);
+//     console.log(req.user.dog)
+//     User.save()
+//     res.redirect('/profile');
+// };
+
 
 
 function index(req, res, next) {

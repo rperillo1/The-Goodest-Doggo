@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Goodest Dogg-O</title> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
     <!-- Google Icon Fonts used by Materialize -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Materialize CSS Framework -->
@@ -46,17 +46,18 @@
     </main>
 
     <section>
-        <h3>Upload your dog photo's below!</h3> 
-        <h6><%=user%></h6> 
+        <h3><%=user.name%>, your dog photo is below</h3>  
     </section>
 
-    <form class="image-form"method="POST" action="/profile" enctype="multipart/form-data">
-      <input type="file" name="image" /><br /><br />
-      Dog's Name: <input type="text" name="name">
-      <button type="submit">Upload</button>
-    </form>
 
-    <a href="/profile/<%=user._id%>">See Your profile pics</a>
+    <div class="card" style="width: 18rem;">
+      
+      <img src="" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%=dogName%></h5>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
 
 
 </body>
