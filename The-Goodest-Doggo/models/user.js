@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 var dogSchema = new mongoose.Schema({
     URL: String,
     name: String,
-    image: String
 }, {
     timestamps: true
 });
