@@ -1,8 +1,41 @@
 const User = require('../models/user');
+const path = require('path');
+const Resize = require('../Resize');
 
-module.exports = {
-  index
+function show(req, res) {
+
+}
+
+const create = async function (req, res) {
+    const imagePath = path.join(process.cwd(), '/public/images');
+    const fileUpload = new Resize(imagePath);
+    if (!req.file) {
+      res.status(401).alert({error: 'Please provide an image'});
+    }
+    const filename = await fileUpload.save(req.file.buffer);
+    // return res.status(200).json({ name: filename });
+    console.log(filename)
+    console.log(req.body)
+    req.user.dog.push(filename);
+    req.user.dog.push(req.body);
+    console.log(req.user.dog)
+    res.redirect('/profile');
 };
+
+// function create(req, res){
+//     Flight.findById(req.params.id, function(err, flight){
+//         flight.destinations.push(req.body);
+//         flight.destinations.sort((a,b) => {
+//             let dateA = new Date(a.arrival);
+//             let dateB = new Date(b.arrival);
+//                 return dateA - dateB;
+//         });
+//             flight.save(function(err){
+//                 res.redirect(`/flights/${flight._id}`)
+//             });
+//     });
+// }
+
 
 function index(req, res, next) {
     console.log(req.query)
@@ -22,4 +55,10 @@ function index(req, res, next) {
         sortKey
       });
     });
-  }
+}
+
+module.exports = {
+    index,
+    create,
+    show
+};

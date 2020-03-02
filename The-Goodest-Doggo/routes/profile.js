@@ -8,18 +8,11 @@ const Resize = require('../Resize');
 
 router.get('/', profileCtrl.index);
 
-// router.post('/', upload.single('image'), async function (req, res) {
-//     await console.log('post');
-//   });
+// router.get('/:id', profileCtrl.show);
 
-router.post('/', upload.single('image'), async function (req, res) {
-    const imagePath = path.join(process.cwd(), '/public/images');
-    const fileUpload = new Resize(imagePath);
-    if (!req.file) {
-      res.status(401).json({error: 'Please provide an image'});
-    }
-    const filename = await fileUpload.save(req.file.buffer);
-    return res.status(200).json({ name: filename });
-});
+router.post('/', upload.single('image'), profileCtrl.create);
+
+// router.post('/:id/image', profileCtrl.create);
+
 
 module.exports = router;
