@@ -10,4 +10,4 @@ var competingDogSchema = new mongoose.Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('Competing-Dog', competingDogSchema);
+module.exports = mongoose.model('CompetingDog', competingDogSchema);
