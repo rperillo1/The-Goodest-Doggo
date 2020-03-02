@@ -47,7 +47,6 @@
 
     <section>
         <h3>Upload your dog photo's below!</h3> 
-        <h6><%=user%></h6> 
     </section>
 
     <form class="image-form"method="POST" action="/profile" enctype="multipart/form-data">
@@ -56,7 +55,7 @@
       <button type="submit">Upload</button>
     </form>
 
-    <a href="/profile/<%=user._id%>">See Your profile pics</a>
+    <a href="/profile/<%=user._id%>" class="btn btn-primary">See Your profile pics</a>
 
 
 </body>

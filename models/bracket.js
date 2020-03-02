@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 
 var bracketSchema = new mongoose.Schema({
-    name: String,
-    dogs: [{type: Schema.Types.ObjectId, ref: 'User'}]
+    name: {type: String, default: "The Woofing Competition"}
 }, {
     timestamps: true
 });
