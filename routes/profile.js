@@ -7,8 +7,9 @@ const upload = require('../uploadMiddleware');
 router.get('/', profileCtrl.index);
 router.get('/:id', profileCtrl.show);
 
-// router.post('/', upload.single('image'), dogCtrl.create);
 router.post('/', upload.single('image'), profileCtrl.create);
+
+router.delete('/', profileCtrl.delete);
 
 
 

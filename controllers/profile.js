@@ -4,6 +4,13 @@ const path = require('path');
 const Resize = require('../Resize');
 
 
+function deleteImage(req, res){
+  User.findById(req.user._id, function(err, user){
+    user.dog[0].pop()
+    res.redirect('profile/show')
+    });
+}
+
 function show(req, res) {
   Bracket.find({}, function(err, bracket){
     console.log('from bracket:', bracket)
@@ -62,5 +69,6 @@ function index(req, res, next) {
 module.exports = {
     index,
     create,
-    show
+    show,
+    delete: deleteImage
 };

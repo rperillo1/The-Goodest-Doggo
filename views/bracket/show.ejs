@@ -45,10 +45,14 @@
             </div>
         </nav>
     </main>
-    
+
+    <%competingDogs.forEach(cd => { %>
+        <%user.forEach(u =>{ %>
+            <% if (u._id.equals(cd.user)) { %>
+
     <div class="round_1">
       <div class="card" style="width: 18rem;">
-        <img src="#" class="card-img-top" alt="...">
+        <img src="/images/<%=u.dog[0].URL%>" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text"></p>
@@ -171,6 +175,10 @@
         </div>
       </div>
     </div>
+
+    <% } %>
+        <% }); %>
+    <% }); %>
 
 </body>
 </html>
