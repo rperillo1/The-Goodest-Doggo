@@ -46,12 +46,22 @@
         </nav>
     </main>
 
-
-    <ul>
+<table>
+    <thead>
+        <tr>
+            <th>Enter the Bracket</th>
+            <th>Visit Bracket</th> 
+        </tr>
+    </thead>
+    <tbody>
         <% bracket.forEach(b => { %>
-        <li><a href="/bracket/show/<%=b._id%>">Enter Bracket</a></li>
+        <tr>
+            <td><a href="/bracket/show/<%=b._id%>">Enter Bracket</a></td>
+            <td><a href="/bracket/showB/<%=b._id%>">Go To Bracket</a></td>
+        </tr>
         <% }); %>
-    </ul>
+    </tbody>
+</table>
 
 </body>
 </html>

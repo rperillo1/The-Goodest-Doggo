@@ -7,6 +7,7 @@ var competingDogsCtrl = require('../controllers/competing-dogs');
 // router.get('/', bracketCtrl.index);
 router.get('/:userId', bracketCtrl.index);
 router.get('/show/:bracketId', bracketCtrl.show);
+router.get('/showB/:bracketId', bracketCtrl.showBracket);
 
 
 module.exports = router;
