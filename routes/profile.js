@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var profileCtrl = require('../controllers/profile');
-var dogCtrl = require('../controllers/dogs');
 const upload = require('../uploadMiddleware');
 
 

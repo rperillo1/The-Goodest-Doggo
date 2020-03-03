@@ -1,18 +1,21 @@
 const User = require('../models/user');
 const Bracket = require('../models/bracket');
-const Dog = require('../models/dog');
 const path = require('path');
 const Resize = require('../Resize');
 
 
 function show(req, res) {
+  Bracket.find({}, function(err, bracket){
+    console.log('from bracket:', bracket)
     User.findById(req.user._id, function(err, user){
-        console.log('from user model', user)
-        res.render('profile/show', {
-            user: user,
-            dogName: user.dog[0].name
-          });
-    });
+      console.log('from user model', user)
+      res.render('profile/show', {
+          user: user,
+          dogName: user.dog[0].name,
+          bracket: bracket
+        });
+      });
+  });
 }
 
 

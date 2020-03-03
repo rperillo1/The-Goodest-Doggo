@@ -36,7 +36,7 @@
             <ul class="right">
                 <li>
                 <% if (user) { %>
-                    <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+                    <a href="/logout"><i class="material-icons left">trending_flat&nbsp;&nbsp;&nbsp;</i>Log Out</a>
                 <% } else { %>
                     <a href="/auth/google"><i class="material-icons left">vpn_key&nbsp;&nbsp;&nbsp;</i>Login with Google</a>
                 <% } %>
@@ -45,132 +45,13 @@
             </div>
         </nav>
     </main>
-    
-    <div class="round_1">
-      <div class="card" style="width: 18rem;">
-        <img src="#" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Vote</a>
-        </div>
-      </div>
 
-      <div class="card" style="width: 18rem; text-align: center;">
-        <div class="card-body">
-          <h5 class="card-title">VS</h5>
-          <p class="card-text"></p>
-        </div>
-      </div>
 
-      <div class="card" style="width: 18rem;">
-        <img src="dog-2.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Vote</a>
-        </div>
-      </div>
-
-      <div class="card" style="width: 18rem;">
-        <img src="dog-3.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Vote</a>
-        </div>
-      </div>
-
-      <div class="card" style="width: 18rem; text-align: center;">
-        <div class="card-body">
-          <h5 class="card-title">VS</h5>
-          <p class="card-text"></p>
-        </div>
-      </div>
-
-      <div class="card" style="width: 18rem;">
-        <img src="dog-4.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Vote</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="round_2">
-      <div class="card" style="width: 18rem; margin-bottom: 0px;">
-        <img src="dog-1.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Vote</a>
-        </div>
-      </div>
-      
-      <div class="card" style="width: 18rem; text-align: center; margin-top: 100px;">
-        <div class="card-body">
-          <h5 class="card-title">VS</h5>
-          <p class="card-text"></p>
-        </div>
-      </div>
-
-      <div class="card" style="width: 18rem;">
-        <img src="dog-3.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Vote</a>
-        </div>
-      </div>
-
-      <div class="card" style="width: 18rem; visibility: hidden; margin-top: 120px;">
-        <img src="" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Vote</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="round_3">
-      <div class="card" style="width: 18rem; visibility:hidden;">
-        <img src="dog-3.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Vote</a>
-        </div>
-      </div>
-      
-      <div class="card" style="width: 18rem;">
-        <img src="dog-1.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Vote</a>
-        </div>
-      </div>
-
-      <div class="card" style="width: 18rem; visibility: hidden;">
-        <img src="dog-3.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Vote</a>
-        </div>
-      </div>
-
-      <div class="card" style="width: 18rem; visibility: hidden; margin-top: 85px;">
-        <img src=".." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary">Vote</a>
-        </div>
-      </div>
-    </div>
+    <ul>
+        <% bracket.forEach(b => { %>
+        <li><a href="/bracket/<%=b._id%>">Enter Bracket</a></li>
+        <% }); %>
+    </ul>
 
 </body>
 </html>

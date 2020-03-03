@@ -1,23 +1,39 @@
 const User = require('../models/user');
+const CompetingDog = require('../models/competing-dog')
 const Bracket = require('../models/bracket');
 
-// function index(req, res, next) {
-//     User.find({}, function(err, users){
-//         res.render('bracket/index', {
-//             users
-//         });  
-//     });
-// }
-function newBracket(req, res) {
-    
+
+
+function index(req, res, next) {
+    Bracket.find({}, function(err, bracket){
+        User.find({}, function(err, user){
+                res.render('bracket/index', {
+                   user,
+                   bracket
+                }); 
+            });
+        });
 }
 
-function pullFourDogs(){
 
+function show(req, res, next) {
+    console.log('bracket id', req.params.bracketId)
+    User.find({}, function(err, user){
+        const competingDog = new CompetingDog({
+            bracket: req.params.bracketId,
+            user: user._id
+        });
+        console.log(competingDog);
+        res.render('bracket/show', {
+            user,
+            bracketId: req.params.bracketId
+        }); 
+    });
 }
 
 
 
-// module.exports = {
-//     index
-// }
+module.exports = {
+    index,
+    show
+}
