@@ -17,13 +17,12 @@ function index(req, res, next) {
 
 
 function show(req, res, next) {
-    console.log('bracket id', req.params.bracketId)
     User.find({}, function(err, user){
         const competingDog = new CompetingDog({
             bracket: req.params.bracketId,
-            user: user._id
+            user: req.user._id
         });
-        console.log(competingDog);
+        console.log('competing dog model', competingDog);
         res.render('bracket/show', {
             user,
             bracketId: req.params.bracketId

@@ -17,7 +17,7 @@ var usersRouter = require('./routes/users');
 var homeRouter = require('./routes/home');
 var profileRouter = require('./routes/profile');
 var bracketRouter = require('./routes/bracket');
-var competingDogsRouter = require('./routes/competingDogs');
+// var competingDogsRouter = require('./routes/competingDogs');
 
 var app = express();
 
@@ -52,7 +52,7 @@ app.use('/users', usersRouter);
 app.use('/home', homeRouter);
 app.use('/profile', profileRouter);
 app.use('/bracket', bracketRouter);
-app.use('/competingDogs', competingDogsRouter);
+// app.use('/competingDogs', competingDogsRouter);
 
 
 // catch 404 and forward to error handler
