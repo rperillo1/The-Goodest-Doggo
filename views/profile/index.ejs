@@ -49,13 +49,14 @@
         <h3>Upload your dog photo's below!</h3> 
     </section>
 
-    <form class="image-form"method="POST" action="/profile" enctype="multipart/form-data">
+    <form class="image-form" method="POST" action="/profile" enctype="multipart/form-data">
       <input type="file" name="image" /><br /><br />
       Dog's Name: <input type="text" name="name">
-      <button type="submit">Upload</button>
+      <button type="submit">P'upload</button>
     </form>
-
-    <a href="/profile/<%=user._id%>" class="btn btn-primary">See Your profile pics</a>
+    <% if (user.dog[0]) { %> 
+      <a href="/profile/<%=user._id%>" class="btn btn-primary" style=<%="visibility: hidden;" %>>See Your profile pics</a>
+    <% } %>
 
 
 </body>

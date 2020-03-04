@@ -57,10 +57,14 @@
         <h5 class="card-title"><%=dogName%></h5>
         <a href="/bracket/<%=user._id%>" class="btn btn-primary">Post to a competition</a>
         <br>
-        <a href="/profile/" class="btn btn-warning">Delete Dog Photo</a>
+        <br>
+
+        <form action="/profile/<%=user._id%>?_method=DELETE" method="POST">
+          <button type="submit">Delete Dog Photo</button>
+        </form>
+
       </div>
     </div>
-
     
 
 </body>

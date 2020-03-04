@@ -8,8 +8,7 @@ router.get('/', profileCtrl.index);
 router.get('/:id', profileCtrl.show);
 
 router.post('/', upload.single('image'), profileCtrl.create);
-
-router.delete('/', profileCtrl.delete);
+router.delete('/:id', profileCtrl.delete);
 
 
 

@@ -6,10 +6,15 @@ const Resize = require('../Resize');
 
 function deleteImage(req, res){
   User.findById(req.user._id, function(err, user){
-    user.dog[0].pop()
-    res.redirect('profile/show')
+    console.log('image', user.dog[0]);
+    user.dog.pop()
+    user.save(function(err){
+      if (err) return res.redirect('profile/');
+      res.redirect('/profile'); 
     });
-}
+  });
+};
+
 
 function show(req, res) {
   Bracket.find({}, function(err, bracket){
@@ -35,9 +40,12 @@ const create = async function (req, res) {
     const filename = await fileUpload.save(req.file.buffer);
     console.log('req.file is', req.file);
     req.body.URL = filename;
+    // req.user.dog.push(req.body);
+    console.log(req.user.dog[0])
+    if (req.user.dog[0]) {
+      req.user.dog.shift()
+    }
     req.user.dog.push(req.body);
-    req.user.dog.shift()
-    console.log(req.user)
     const user = new User(req.user);
     user.save(function(err){
         if (err) return res.redirect('profile/');
