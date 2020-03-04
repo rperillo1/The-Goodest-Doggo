@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Goodest Dogg-O</title> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style_2.css">
     <!-- Google Icon Fonts used by Materialize -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Materialize CSS Framework -->
@@ -46,6 +46,7 @@
         </nav>
     </main>
 
+    <section id="round_1">
     <%competingDogs.forEach(cd => { %>
         <%user.forEach(u =>{ %>
             <% if (u._id.equals(cd.user)) { %>
@@ -55,13 +56,61 @@
         <img src="/images/<%=u.dog[0].URL%>" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title"><%=u.dog[0].name%></h5>
-          <a href="/votes/<%=cd.user%>/<%=cd.bracket%>" class="btn btn-primary">Vote</a>
+          <a href="/bracket/votes/<%=cd.user%>/<%=cd.bracket%>" class="btn btn-primary">Vote</a>
+          <p>Votes: <%=cd.votes%></p>
         </div>
       </div>
-
-    <% } %>
+    </div>
+    
+            <% } %>
         <% }); %>
     <% }); %>
+
+    </section>
+
+    <section id="round_2">
+    <%for (let i = 0; i < round1winners.length; i++) { %>
+        <%user.forEach(u =>{ %>
+            <% if (u._id.equals(round1winners[i].user)) { %>
+
+    <div class="round_2">
+      <div class="card" style="width: 18rem;">
+        <img src="/images/<%=u.dog[0].URL%>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%=u.dog[0].name%></h5>
+          <a href="/bracket/votes/<%=round1winners[i].user%>/<%=round1winners[i].bracket%>" class="btn btn-primary">Vote</a>
+          <p>Votes: <%=round1winners[i].votes%></p>
+        </div>
+      </div>
+    </div>
+
+            <% } %>
+        <% }); %>
+    <% }; %>
+
+    </section>
+
+    <section id="round_3">
+            <%user.forEach(u =>{ %>
+                <% if (u._id.equals(round2winner[0].user)) { %>
+    
+        <div class="round_2">
+          <div class="card" style="width: 18rem;">
+            <img src="/images/<%=u.dog[0].URL%>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=u.dog[0].name%></h5>
+              <a href="/bracket/votes/<%=round2winner[0].user%>/<%=round2winner[0].bracket%>" class="btn btn-primary">Vote</a>
+              <p>Votes: <%=round2winner[0].votes%></p>
+            </div>
+          </div>
+        </div>
+    
+                <% } %>
+            <% }); %>
+    
+        </section>
+
+    
 
 </body>
 </html>

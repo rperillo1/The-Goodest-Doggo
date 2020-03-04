@@ -4,6 +4,10 @@ const path = require('path');
 const Resize = require('../Resize');
 
 
+function updateImage(req, res) {
+
+}
+
 function deleteImage(req, res){
   User.findById(req.user._id, function(err, user){
     console.log('image', user.dog[0]);
@@ -77,5 +81,6 @@ module.exports = {
     index,
     create,
     show,
-    delete: deleteImage
+    delete: deleteImage,
+    update: updateImage
 };

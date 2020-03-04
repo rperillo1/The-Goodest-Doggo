@@ -9,6 +9,7 @@ router.get('/:id', profileCtrl.show);
 
 router.post('/', upload.single('image'), profileCtrl.create);
 router.delete('/:id', profileCtrl.delete);
+router.put('/:id', profileCtrl.update);
 
 
 

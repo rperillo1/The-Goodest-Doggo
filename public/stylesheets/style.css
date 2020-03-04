@@ -4,10 +4,10 @@ body {
   background-image: url('/images/bg_image.jpg');
   background-size: cover;
   /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas: 
-       "round_1 round_2 round_3 comments";   */
+       "round_1 round_2 round_3";   */
 }
 
 
@@ -100,4 +100,9 @@ td+a{
 th, td {
   border: 1px solid black;
   padding: 3px;
+}
+
+#dog-card {
+  display: flex;
+  justify-content: center;
 }
