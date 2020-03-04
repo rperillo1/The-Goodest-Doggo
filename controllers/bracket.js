@@ -4,6 +4,20 @@ const Bracket = require('../models/bracket');
 
 
 
+function increment(req, res) {
+    CompetingDog.find({bracket: req.params.bracketId}, function(err, competingDogs){
+        User.find({user: req.params.userId}, function(err, user){
+            console.log('increment func dogs', competingDogs)
+            console.log('increment func user',user)
+            res.render(`bracket/showB/${req.params.bracketId}`, {
+                    user,
+                    competingDogs,
+            }); 
+        });
+    });
+}
+
+
 function index(req, res, next) {
     Bracket.find({}, function(err, bracket){
         User.find({}, function(err, user){
@@ -47,5 +61,6 @@ function showBracket(req, res){
 module.exports = {
     index,
     show,
-    showBracket
+    showBracket,
+    increment
 }

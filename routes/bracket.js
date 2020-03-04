@@ -9,5 +9,7 @@ router.get('/:userId', bracketCtrl.index);
 router.get('/show/:bracketId', bracketCtrl.show);
 router.get('/showB/:bracketId', bracketCtrl.showBracket);
 
+router.get('/votes/:brackId/:userId', bracketCtrl.increment);
+
 
 module.exports = router;

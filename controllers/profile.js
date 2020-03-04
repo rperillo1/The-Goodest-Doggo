@@ -18,7 +18,6 @@ function deleteImage(req, res){
 
 function show(req, res) {
   Bracket.find({}, function(err, bracket){
-    console.log('from bracket:', bracket)
     User.findById(req.user._id, function(err, user){
       console.log('from user model', user)
       res.render('profile/show', {
