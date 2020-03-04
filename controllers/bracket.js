@@ -5,15 +5,14 @@ const Bracket = require('../models/bracket');
 
 
 function increment(req, res) {
-    CompetingDog.find({bracket: req.params.bracketId}, function(err, competingDogs){
-        User.find({user: req.params.userId}, function(err, user){
-            console.log('increment func dogs', competingDogs)
-            console.log('increment func user',user)
-            res.render(`bracket/showB/${req.params.bracketId}`, {
-                    user,
-                    competingDogs,
-            }); 
-        });
+    CompetingDog.find({bracket: req.params.bracketId && user: req.params.userId}, function(err, competingDogs){
+        console.log('increment func dogs', competingDogs)
+        console.log('increment func user',user)
+
+        res.render(`bracket/showB/${req.params.bracketId}`, {
+            user,
+            competingDogs,
+        }); 
     });
 }
 
