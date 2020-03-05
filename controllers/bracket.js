@@ -82,14 +82,6 @@ function showBracket(req, res){
     });
 }
 
-function roundOne(){
-
-}
-
-function roundTwo(){
-
-}
-
 
 module.exports = {
     index,

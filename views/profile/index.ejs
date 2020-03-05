@@ -41,25 +41,27 @@
             </div>
         </nav>
     </main>
+    <!-- <main id="main-2"> -->
+      <% if (!user.dog[0]) { %> 
+      <section>
+          <h3>Upload your dog photo's below!</h3> 
+      </section>
+      <form class="image-form" method="POST" action="/profile" enctype="multipart/form-data">
+        <!-- <input type="file" name="image" /><br /><br /> -->
+        URL: <input type="text" name="URL">
+        Dog's Name: <input type="text" name="name">
+        <button type="submit">P'upload</button>
+      </form>
+      <% } %>
 
-    <% if (!user.dog[0]) { %> 
-    <section>
-        <h3>Upload your dog photo's below!</h3> 
-    </section>
-    <form class="image-form" method="POST" action="/profile" enctype="multipart/form-data">
-      <input type="file" name="image" /><br /><br />
-      Dog's Name: <input type="text" name="name">
-      <button type="submit">P'upload</button>
-    </form>
-    <% } %>
+      <% if (user.dog[0]) { %> 
+      <section>
+          <h3>Navigate to your doggy profile below!</h3> 
+      </section>
 
-    <% if (user.dog[0]) { %> 
-    <section>
-        <h3>Navigate to your doggy profile below!</h3> 
-    </section>
-      <a href="/profile/<%=user._id%>" class="btn btn-primary" style=<%="visibility: hidden;" %>>See Your profile pics</a>
-    <% } %>
-
+        <a href="/profile/<%=user._id%>" class="btn btn-primary" style=<%="visibility: hidden;" %>>See Your profile pics</a>
+      <% } %>
+    <!-- </main> -->
 
 </body>
 </html>

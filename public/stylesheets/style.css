@@ -1,13 +1,7 @@
 body {
   margin: 0;
-  /* height: 100vh; */
   background-image: url('/images/bg_image.jpg');
   background-size: cover;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: 
-       "round_1 round_2 round_3";   */
 }
 
 
@@ -21,48 +15,18 @@ div {
   display: inline-block;
 }
 
-.navbar {
-  grid-area: navbar;
-  /* width: 100vw; */
-}
 
 div.card-body {
   padding: 2px;
 }
 
-.round_2 div.card {
-  margin-top: 90px;
-  margin-bottom: 40px;
-}
 
-.round_2 div.card:last-child {
-  margin: 50px 0px;
-}
-
-.round_1 {
-  grid-area: round_1;
-  margin-top: 20px;
-}
-
-
-.round_1 img{
-  height: 30vh;
-}
-
-.round_2 {
-  grid-area: round_2;
-}
-
-.round_3 {
-  grid-area: round_3;
-}
-
-#comp-button {
+/* #comp-button {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #343A40;
-}
+} */
 
 h3 {
   text-align: center;
@@ -70,7 +34,8 @@ h3 {
   padding: 10px;
   background-color: white;
   color: #343A40;
-  border: 4px solid #343A40;
+  border-top: 4px solid #343A40;
+  border-bottom: 4px solid #343A40;
 }
 
 a {
