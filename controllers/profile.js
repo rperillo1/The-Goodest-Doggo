@@ -4,8 +4,18 @@ const path = require('path');
 const Resize = require('../Resize');
 
 
-function updateImage(req, res) {
-
+function updateDogName(req, res) {
+  User.findById(req.user._id, function(err, user){
+    user.dog[0].name = '';
+    console.log('req.user.dogName', user.dog[0].name)
+    console.log('req.body', req.body.name)
+    user.dog[0].name = req.body.name;
+    console.log('Newreq.user.dogName', user.dog[0].name)
+    user.save(function(err){
+        if (err) return res.redirect('profile/');
+            res.redirect(`/profile/${req.user._id}`);   
+    });
+  });
 }
 
 function deleteImage(req, res){
@@ -41,7 +51,6 @@ const create = async function (req, res) {
       res.status(401).alert({error: 'Please provide an image'});
     }
     const filename = await fileUpload.save(req.file.buffer);
-    console.log('req.file is', req.file);
     req.body.URL = filename;
     // req.user.dog.push(req.body);
     console.log(req.user.dog[0])
@@ -82,5 +91,5 @@ module.exports = {
     create,
     show,
     delete: deleteImage,
-    update: updateImage
+    update: updateDogName
 };

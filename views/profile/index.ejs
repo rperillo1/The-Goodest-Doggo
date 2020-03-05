@@ -26,10 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Current Bracket <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Enter Your Dog</a>
+                  <a class="nav-link" href="/bracket/<%=user._id%>">Current Brackets <span class="sr-only">(current)</span></a>
                 </li>
               </ul>
             <ul class="right">
@@ -45,16 +42,21 @@
         </nav>
     </main>
 
+    <% if (!user.dog[0]) { %> 
     <section>
         <h3>Upload your dog photo's below!</h3> 
     </section>
-
     <form class="image-form" method="POST" action="/profile" enctype="multipart/form-data">
       <input type="file" name="image" /><br /><br />
       Dog's Name: <input type="text" name="name">
       <button type="submit">P'upload</button>
     </form>
+    <% } %>
+
     <% if (user.dog[0]) { %> 
+    <section>
+        <h3>Navigate to your doggy profile below!</h3> 
+    </section>
       <a href="/profile/<%=user._id%>" class="btn btn-primary" style=<%="visibility: hidden;" %>>See Your profile pics</a>
     <% } %>
 

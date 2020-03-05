@@ -4,13 +4,16 @@ var profileCtrl = require('../controllers/profile');
 const upload = require('../uploadMiddleware');
 
 
-router.get('/', profileCtrl.index);
-router.get('/:id', profileCtrl.show);
+router.get('/',  isLoggedIn, profileCtrl.index);
+router.get('/:id', isLoggedIn, profileCtrl.show);
 
-router.post('/', upload.single('image'), profileCtrl.create);
-router.delete('/:id', profileCtrl.delete);
-router.put('/:id', profileCtrl.update);
+router.post('/', isLoggedIn, upload.single('image'), profileCtrl.create);
+router.delete('/:id', isLoggedIn, profileCtrl.delete);
+router.put('/:id', isLoggedIn, profileCtrl.update);
 
-
+function isLoggedIn(req, res, next) {
+    if ( req.isAuthenticated() ) return next();
+    res.redirect('/auth/google');
+  }
 
 module.exports = router;
