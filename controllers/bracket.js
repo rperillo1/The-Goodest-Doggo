@@ -16,17 +16,29 @@ function increment(req, res) {
 
 
 function index(req, res, next) {
-    CompetingDog.findOne({user: req.user._id}, function(err, cd) {
-        Bracket.find({}, function(err, bracket){
-            User.findById(req.user._id, function(err, user){
-                    res.render('bracket/index', {
-                       user,
-                       bracket,
-                       cd
+    let cdArray = [];
+    CompetingDog.find({}, function(err, compDog){
+        CompetingDog.findOne({user: req.user._id}, function(err, cd) {
+            Bracket.find({}, function(err, bracket){
+                bracket.forEach(b => {
+                    compDog.forEach(dog => {
+                        if (b._id.equals(dog.bracket)){
+                            cdArray.push(b._id);
+                        };
+                    })
+                });
+                console.log('cdArray', cdArray)
+                User.findById(req.user._id, function(err, user){
+                        res.render('bracket/index', {
+                           user,
+                           bracket,
+                           cd,
+                           cdArray
+                    });
                 });
             });
-        });
-    })
+        })
+    });
 }
 
 
@@ -71,25 +83,11 @@ function showBracket(req, res){
 }
 
 function roundOne(){
-    CompetingDog.find({bracket: req.params.bracketId}, function(err, competingDogs) {
-            if (competingDogs[0].votes > competingDogs[1].votes){
-                let round1winner1 = competingDogs[0];
-            } else { let round1winner1 = competingDogs[1]; } 
-            if (competingDogs[2].votes > competingDogs[3].votes){
-                let round1winner2 = competingDogs[2];
-            } else { let round1winner2 = competingDogs[3]; }
-            console.log('round1winner1: ', round1winner1);
-            console.log('round1winner2: ', round1winner2);
-    });
+
 }
 
 function roundTwo(){
-    CompetingDog.find({bracket: req.params.bracketId}, function(err, competingDogs) {
-            if (round1winner1.votes > round1winner2.votes){
-                let round2winner = round1winner1;
-            } else { let round2winner = round1winner2 } 
-            console.log('round2winner: ', round2winner);
-    });
+
 }
 
 

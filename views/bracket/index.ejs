@@ -54,16 +54,40 @@
         <% bracket.forEach(b => { %>
         <tr>
             <% if (cd === null) { %>
-                <td><a href="/bracket/show/<%=b._id%>">Enter This Bracket</a></td>
-                <td><a href="/bracket/showB/<%=b._id%>">Go To This Bracket</a></td>
+                <% let count = 0; %>
+                <% cdArray.forEach(eachCd => { %>
+                    <% if (eachCd === b._id) { %>
+                        <% count++ %>
+                    <% } %>
+                <% }); %>
+                <% if (count < 4) { %>
+                    <td><a href="/bracket/show/<%=b._id%>">Enter This Bracket</a></td>
+                    <td><p>Needs to fill before voting can start</p></td> 
+                   
+                <% } else { %>
+                    <td><p>Bracket full, Go VOTE!</p></td> 
+                    <td><a href="/bracket/showB/<%=b._id%>">Go To This Bracket</a></td> 
+                <% } %>
             <% } else if (cd.user.equals(user._id)) { %>
-                <td><p>You already entered your dog!</p></td>
+                <% if (cd.bracket.equals(b._id)) { %>
+                <td><p>You already entered your dog in this bracket!</p></td>
                 <td><a href="/bracket/showB/<%=b._id%>">Go To This Bracket</a></td>
-            <% } else { %>
-                <td><a href="/bracket/show/<%=b._id%>">Enter This Bracket</a></td>
-                <td><a href="/bracket/showB/<%=b._id%>">Go To This Bracket</a></td>
+                <% } else { %>
+                    <!-- second statment -->
+                    <% let count = 0; %>
+                    <% cdArray.forEach(eachCd => { %>
+                        <% if (eachCd === b._id) { %>
+                            <% count++ %>
+                        <% } %>
+                    <% }); %>
+                    <% if (count > 4) { %>
+                        <td><p>Bracket full with other dogs, Go VOTE!</p></td> 
+                        <td><a href="/bracket/showB/<%=b._id%>">Go To This Bracket</a></td> 
+                        <% } %>
+                    <% } %>
+                <% } %>
         </tr>
-            <% } %>
+
         <% }); %>
     </tbody>
 </table>
