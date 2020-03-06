@@ -35,7 +35,7 @@ function show(req, res) {
   CompetingDog.find({user: req.user._id}, function(err, competingDog) {
     Bracket.find({}, function(err, bracket){
       User.findById(req.user._id, function(err, user){
-        console.log('from user model', user)
+        // console.log('from user model', user)
         res.render('profile/show', {
             user: user,
             dogName: user.dog[0].name,
