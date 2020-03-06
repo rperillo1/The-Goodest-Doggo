@@ -49,17 +49,6 @@ function show(req, res) {
 
 
 const create = async function (req, res) {
-    // const imagePath = path.join(process.cwd(), '/public/images');
-    // const fileUpload = new Resize(imagePath);
-    // if (!req.file) {
-    //   res.status(401).alert({error: 'Please provide an image'});
-    // }
-    // const filename = await fileUpload.save(req.file.buffer);
-    // console.log(filename)
-    // console.log(req.file.buffer)
-    // req.body.URL = filename;
-    // req.body.ImgBuffer = req.file.buffer
-    // req.user.dog.push(req.body);
     console.log(req.body)
     console.log(req.user.dog[0])
     if (req.user.dog[0]) {
@@ -76,10 +65,7 @@ const create = async function (req, res) {
 
 function index(req, res, next) {
     console.log(req.query)
-    // Make the query object to use with Student.find based up
-    // the user has submitted the search form or now
     let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
-    // Default to sorting by name
     let sortKey = req.query.sort || 'name';
     User.find(modelQuery)
     .sort(sortKey).exec(function(err, users) {
