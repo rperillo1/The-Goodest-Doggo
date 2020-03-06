@@ -1,6 +1,6 @@
 body {
+    font-family: 'Josefin Sans', sans-serif;
     margin: 0;
-
     background-image: url('/images/bg_image.jpg');
     background-size: cover;
     display: grid;
@@ -52,6 +52,7 @@ div {
   
 div.card-body {
     padding: 2px;
+    text-align: center;
 }
   
   
@@ -77,8 +78,18 @@ h1 {
     border: 2px black solid;
     background-color: white;
     text-align: center;
+    padding: 10px;
 }
 
 ul.right {
     color: #343A40;
-  }
+}
+
+h5.card-title {
+    padding-top: 8px; 
+}
+
+p {
+    margin-top: 10px;
+    margin-bottom: 3px;
+}

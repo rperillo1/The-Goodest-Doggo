@@ -1,9 +1,13 @@
 body {
+  font-family: 'Josefin Sans', sans-serif;
   margin: 0;
   background-image: url('/images/bg_image.jpg');
   background-size: cover;
 }
 
+h1 {
+  padding-top: 15px;
+}
 
 #main-2 {
   display: flex;
@@ -119,4 +123,8 @@ th, td {
 
 #card-image {
   height: 350px;
+}
+
+h5.card-title {
+  padding-top: 4px; 
 }
