@@ -8,7 +8,7 @@ body {
 #main-2 {
   display: flex;
   justify-content: center;
-  padding-top: 70px;
+  padding-top: 50px;
   text-align: center;
 }
 
@@ -26,13 +26,6 @@ div.card-body {
   justify-content: center;
   margin-top: 50px;
 }
-
-/* #comp-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #343A40;
-} */
 
 h2 {
   text-align: center;
@@ -64,16 +57,11 @@ ul.right {
 
 
 #main-3 {
-  /* display: inline-block; */
   justify-content: center;
-  /* padding-top: 90px; */
   text-align: center;
   margin-top: 50px;
 }
 
-#no-flex {
-
-}
 
 .image-form2 {
   background-color: white;
@@ -102,4 +90,5 @@ th, td {
   display: flex;
   justify-content: center;
   text-align: center;
+  margin-top: 20px;
 }

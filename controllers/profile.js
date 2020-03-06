@@ -33,7 +33,6 @@ function deleteImage(req, res){
 
 function show(req, res) {
   CompetingDog.find({user: req.user._id}, function(err, competingDog) {
-    console.log('competingDog', competingDog)
     Bracket.find({}, function(err, bracket){
       User.findById(req.user._id, function(err, user){
         console.log('from user model', user)
