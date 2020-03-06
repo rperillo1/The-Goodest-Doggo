@@ -41,27 +41,41 @@
             </div>
         </nav>
     </main>
-    <!-- <main id="main-2"> -->
+
+    <main id="main-2">
       <% if (!user.dog[0]) { %> 
       <section>
-          <h3>Upload your dog photo's below!</h3> 
+          <h2>Upload your dog photo's below!</h2> 
       </section>
+    </main>
+
+    <main id="main-2">
       <form class="image-form" method="POST" action="/profile" enctype="multipart/form-data">
         <!-- <input type="file" name="image" /><br /><br /> -->
         URL: <input type="text" name="URL">
+        <br>
+        <br>
         Dog's Name: <input type="text" name="name">
+        <br>
+        <br>
         <button type="submit">P'upload</button>
       </form>
+    </main>
+
+    <main id="main-3">
+        <a href="/bracket/<%=user._id%>" class="btn btn-success" style=<%="visibility: hidden;" %>><h1>Go Vote On Current Doggy Brackets!</h1></a>
+    </main>
       <% } %>
 
+    <main>
       <% if (user.dog[0]) { %> 
-      <section>
-          <h3>Navigate to your doggy profile below!</h3> 
-      </section>
+    </main>
 
-        <a href="/profile/<%=user._id%>" class="btn btn-primary" style=<%="visibility: hidden;" %>>See Your profile pics</a>
-      <% } %>
-    <!-- </main> -->
+    <section id='no-flex'>
+          <a href="/profile/<%=user._id%>" class="btn btn-success" style=<%="visibility: hidden;" %>><h1>See Your profile pics</h1></a>
+    </section>
+        <% } %>
+
 
 </body>
 </html>

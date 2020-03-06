@@ -1,21 +1,15 @@
 body {
     margin: 0;
-    /* height: 100vh; */
+
     background-image: url('/images/bg_image.jpg');
     background-size: cover;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* grid-template-rows: .03fr .5fr .5fr .5fr .5fr .5fr .5fr .5fr .5fr; */
     grid-template-areas: 
         "navbar navbar navbar"
         "round_1 round_2 round_3" 
 }
   
-
-/* #round_1 {
-    display: grid;
-    grid-template-rows: .03fr .5fr .5fr .5fr .5fr .5fr .5fr .5fr .5fr;
-} */
   
 #main-2 {
     display: flex;
@@ -31,6 +25,8 @@ body {
 .round_1 {
     grid-area: round_1;
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .round_1 img, .round_2 img, .round_3 img{
@@ -39,15 +35,15 @@ body {
   
 .round_2 {
     grid-area: round_2;
-    margin-top: 140px;
+    display: flex;
+    justify-content: center;
 }
 
-.round_2 div.card:last-child {
-    margin-top: 50px;
-}
   
 .round_3 {
     grid-area: round_3;
+    display: flex;
+    justify-content: center;
 }
 
 div {
@@ -58,24 +54,27 @@ div.card-body {
     padding: 2px;
 }
   
-.round_2 div.card {
-    margin-top: 90px;
-    margin-bottom: 40px;
-}
-  
-.round_2 div.card:last-child {
-    margin: 50px 0px;
-}
   
 .round_1 {
     grid-area: round_1;
     margin-top: 20px;
+    display: flex;
+
 }
   
 .round_2 {
     grid-area: round_2;
+    margin-top: 20px;
+    display: flex;
 }
   
 .round_3 {
     grid-area: round_3;
+    margin-top: 20px;
+}
+
+h1 {
+    border: 2px black solid;
+    background-color: white;
+    text-align: center;
 }

@@ -8,7 +8,8 @@ body {
 #main-2 {
   display: flex;
   justify-content: center;
-  padding-top: 90px;
+  padding-top: 70px;
+  text-align: center;
 }
 
 div {
@@ -20,6 +21,11 @@ div.card-body {
   padding: 2px;
 }
 
+#profile-id {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
 
 /* #comp-button {
   display: flex;
@@ -28,14 +34,15 @@ div.card-body {
   background-color: #343A40;
 } */
 
-h3 {
+h2 {
   text-align: center;
   margin-top: 20px;
   padding: 10px;
   background-color: white;
   color: #343A40;
-  border-top: 4px solid #343A40;
-  border-bottom: 4px solid #343A40;
+  border: 4px solid #343A40;
+  display: inline-block;
+  border-radius: 25px;
 }
 
 a {
@@ -49,14 +56,37 @@ ul.right {
 .image-form {
   background-color: white;
   display: inline-block;
-  text-align: center;
+  text-align: right;
   border: 4px solid #343A40;
-  padding: 4px;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+
+#main-3 {
+  /* display: inline-block; */
+  justify-content: center;
+  /* padding-top: 90px; */
+  text-align: center;
+  margin-top: 50px;
+}
+
+#no-flex {
+
+}
+
+.image-form2 {
+  background-color: white;
+  display: inline-block;
+  text-align: center;
+  border-radius: 25px;
+  padding: 20px;
 }
 
 table {
-  background-color: white;
+  border: 3px solid black;
   color: black;
+  background-color: white;
 }
 
 td+a{
@@ -64,11 +94,12 @@ td+a{
 }
 
 th, td {
-  border: 1px solid black;
-  padding: 3px;
+  border: 3px solid black;
+  padding: 10px;
 }
 
 #dog-card {
   display: flex;
   justify-content: center;
+  text-align: center;
 }

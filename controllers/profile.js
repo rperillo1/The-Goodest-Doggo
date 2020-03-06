@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Bracket = require('../models/bracket');
+const CompetingDog = require('../models/competing-dog');
 const path = require('path');
 const Resize = require('../Resize');
 
@@ -31,15 +32,19 @@ function deleteImage(req, res){
 
 
 function show(req, res) {
-  Bracket.find({}, function(err, bracket){
-    User.findById(req.user._id, function(err, user){
-      console.log('from user model', user)
-      res.render('profile/show', {
-          user: user,
-          dogName: user.dog[0].name,
-          bracket: bracket
+  CompetingDog.find({user: req.user._id}, function(err, competingDog) {
+    console.log('competingDog', competingDog)
+    Bracket.find({}, function(err, bracket){
+      User.findById(req.user._id, function(err, user){
+        console.log('from user model', user)
+        res.render('profile/show', {
+            user: user,
+            dogName: user.dog[0].name,
+            bracket: bracket,
+            competingDog
+          });
         });
-      });
+    });
   });
 }
 

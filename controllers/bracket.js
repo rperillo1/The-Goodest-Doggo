@@ -29,6 +29,7 @@ function index(req, res, next) {
                 });
                 console.log('cdArray', cdArray)
                 User.findById(req.user._id, function(err, user){
+                    console.log(user.dog[0])
                         res.render('bracket/index', {
                            user,
                            bracket,
@@ -77,8 +78,8 @@ function showBracket(req, res){
                     competingDogs,
                     round1winners,
                     round2winner
-                }); 
-            });
+            }); 
+        });
     });
 }
 

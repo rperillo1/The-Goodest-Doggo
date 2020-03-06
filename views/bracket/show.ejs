@@ -44,6 +44,7 @@
     </main>
 
     <section id="round_1">
+        <h1>Round 1:</h1>
     <%competingDogs.forEach(cd => { %>
         <%user.forEach(u =>{ %>
             <% if (u._id.equals(cd.user)) { %>
@@ -58,14 +59,13 @@
         </div>
       </div>
     </div>
-    
             <% } %>
         <% }); %>
     <% }); %>
-
     </section>
 
     <section id="round_2">
+        <h1>Round 2:</h1>
     <%for (let i = 0; i < round1winners.length; i++) { %>
         <%user.forEach(u =>{ %>
             <% if (u._id.equals(round1winners[i].user)) { %>
@@ -84,10 +84,11 @@
             <% } %>
         <% }); %>
     <% }; %>
-
+    
     </section>
 
     <section id="round_3">
+        <h1>Winner!</h1>
             <%user.forEach(u =>{ %>
                 <% if (u._id.equals(round2winner[0].user)) { %>
     

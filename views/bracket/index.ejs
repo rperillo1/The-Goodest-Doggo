@@ -42,55 +42,68 @@
             </div>
         </nav>
     </main>
-
-<table>
-    <thead>
-        <tr>
-            <th>Enter the Bracket</th>
-            <th>Visit Bracket</th> 
-        </tr>
-    </thead>
-    <tbody>
-        <% bracket.forEach(b => { %>
-        <tr>
-            <% if (cd === null) { %>
-                <% let count = 0; %>
-                <% cdArray.forEach(eachCd => { %>
-                    <% if (eachCd === b._id) { %>
-                        <% count++ %>
-                    <% } %>
-                <% }); %>
-                <% if (count < 4) { %>
-                    <td><a href="/bracket/show/<%=b._id%>">Enter This Bracket</a></td>
-                    <td><p>Needs to fill before voting can start</p></td> 
-                   
-                <% } else { %>
-                    <td><p>Bracket full, Go VOTE!</p></td> 
-                    <td><a href="/bracket/showB/<%=b._id%>">Go To This Bracket</a></td> 
-                <% } %>
-            <% } else if (cd.user.equals(user._id)) { %>
-                <% if (cd.bracket.equals(b._id)) { %>
-                <td><p>You already entered your dog in this bracket!</p></td>
-                <td><a href="/bracket/showB/<%=b._id%>">Go To This Bracket</a></td>
-                <% } else { %>
-                    <!-- second statment -->
+    
+<main id='main-2'>
+    <table>
+        <thead>
+            <tr>
+                <th>Enter the Bracket</th>
+                <th>Visit Bracket</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <% bracket.forEach(b => { %>
+            <tr>
+                <% if (cd === null) { %>
                     <% let count = 0; %>
                     <% cdArray.forEach(eachCd => { %>
                         <% if (eachCd === b._id) { %>
                             <% count++ %>
                         <% } %>
                     <% }); %>
-                    <% if (count > 4) { %>
-                        <td><p>Bracket full with other dogs, Go VOTE!</p></td> 
+                    <% if (count < 4) { %>
+                        <% if (user.dog[0] !== undefined) { %>
+                        <td><a href="/bracket/show/<%=b._id%>">Enter This Bracket</a></td>
+                        <td><p>Needs to fill before voting can start</p></td> 
+                        <% } %>
+                    <% } else { %>
+                        <td><p>Bracket full, Go VOTE!</p></td> 
                         <td><a href="/bracket/showB/<%=b._id%>">Go To This Bracket</a></td> 
+                    <% } %>
+                <% } else if (cd.user.equals(user._id)) { %>
+                    <% if (cd.bracket.equals(b._id)) { %>
+                        <% let count = 0; %>
+                        <% cdArray.forEach(eachCd => { %>
+                            <% if (eachCd === b._id) { %>
+                                <% count++ %>
+                            <% } %>
+                        <% }); %>
+                        <% if (count > 3) { %>
+                            <td><p>You entered your dog in this bracket!</p></td>
+                            <td><a href="/bracket/showB/<%=b._id%>">Go To This Bracket</a></td>
+                            <% } else { %>
+                                <td><p>You entered your dog in this bracket!</p></td>
+                                <td><p>Waiting on more dogs to vote!</p></td>
+                            <% } %>
+                    <% } else { %>
+                        <% let count = 0; %>
+                        <% cdArray.forEach(eachCd => { %>
+                            <% if (eachCd === b._id) { %>
+                                <% count++ %>
+                            <% } %>
+                        <% }); %>
+                        <% if (count > 3) { %>
+                            <td><p>Bracket full of dogs, Go VOTE!</p></td> 
+                            <td><a href="/bracket/showB/<%=b._id%>">Go To This Bracket</a></td> 
+                            <% } %>
                         <% } %>
                     <% } %>
-                <% } %>
-        </tr>
+            </tr>
 
-        <% }); %>
-    </tbody>
-</table>
+            <% }); %>
+        </tbody>
+    </table>
+</main>
 
 </body>
 </html>
