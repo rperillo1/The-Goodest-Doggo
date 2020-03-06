@@ -68,7 +68,7 @@
                         <td><p>Needs to fill before voting can start</p></td> 
                         <% } %>
                     <% } else { %>
-                        <td><p>Bracket full!</p></td> 
+                        <td><p>Bracket Full Of Dogs!</p></td> 
                         <td><a href="/bracket/showB/<%=b._id%>">Go VOTE!</a></td> 
                     <% } %>
                 <% } else if (cd.user.equals(user._id)) { %>
@@ -80,10 +80,11 @@
                             <% } %>
                         <% }); %>
                         <% if (count > 3) { %>
-                            <td><p>You entered your dog in this bracket!</p></td>
+                            <td><p>Your Dog Is Competing Here!</p></td>
                             <td><a href="/bracket/showB/<%=b._id%>">Go VOTE!</a></td>
                             <% } else { %>
-                                <td><p>You entered your dog in this bracket!</p></td>
+                                <td><p>t > 3) { %>
+                                    <td><p>Your Dog Is Competing Here!</p></td>
                                 <td><p>Waiting on more dogs to vote!</p></td>
                             <% } %>
                     <% } else { %>
@@ -94,8 +95,8 @@
                             <% } %>
                         <% }); %>
                         <% if (count > 3) { %>
-                            <td><p>Bracket full of dogs, Go VOTE!</p></td> 
-                            <td><a href="/bracket/showB/<%=b._id%>">Go To This Bracket</a></td> 
+                            <td><p>Bracket Full Of Dogs!</p></td> 
+                            <td><a href="/bracket/showB/<%=b._id%>">Go VOTE!</a></td> 
                             <% } %>
                         <% } %>
                     <% } %>
