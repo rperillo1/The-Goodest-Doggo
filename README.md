@@ -15,7 +15,7 @@ The Goodest Doggo
 
 Technologies:
 ------
-Express, Node, Javascript, Mongoose, MongoDB
+Express, Node, Javascript, Mongoose, MongoDB, Heroku, HTML, CSS
 
 <br>
 
