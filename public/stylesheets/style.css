@@ -116,3 +116,7 @@ th, td {
   text-align: center;
   padding-top: 10px;
 }
+
+#card-image {
+  height: 350px;
+}
