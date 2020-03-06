@@ -30,7 +30,7 @@ body {
 }
 
 .round_1 img, .round_2 img, .round_3 img{
-    height: 30vh;
+    height: 245px;
 }
   
 .round_2 {
@@ -78,3 +78,7 @@ h1 {
     background-color: white;
     text-align: center;
 }
+
+ul.right {
+    color: #343A40;
+  }

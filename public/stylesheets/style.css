@@ -82,7 +82,7 @@ td+a{
 }
 
 th, td {
-  border: 3px solid black;
+  border: 3px solid #343A40;
   padding: 10px;
 }
 
@@ -91,4 +91,28 @@ th, td {
   justify-content: center;
   text-align: center;
   margin-top: 20px;
+}
+
+#gary {
+  display: flex;
+  justify-content: center;
+  height: 350px;
+  border: 3px solid #343A40;
+  border-radius: 25px;
+}
+
+#main-4 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #DCDADE;
+  margin-top: 30px;
+  padding-top: 10px;
+}
+
+#main-5 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-top: 10px;
 }
